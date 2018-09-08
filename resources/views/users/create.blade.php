@@ -1,7 +1,9 @@
 @extends('layouts.default')
 
+@section('title','用户注册')
+
 @section('content')
     <div class="container">
-        <div class="lead">关于我们</div>
+注册
     </div>
 @stop

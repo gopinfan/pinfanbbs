@@ -9,9 +9,15 @@
     <title>@yield('title','') - PinFan BBS</title>
 
     <link rel="icon" type="image/png" href="">
+    <link rel="stylesheet" href="/css/app.css">
 
 </head>
 <body>
+
+@include('layouts._header')
+
 @yield('content')
+
+@include('layouts._footer')
 </body>
 </html>

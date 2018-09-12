@@ -16,6 +16,8 @@
 
 @include('layouts._header')
 
+@include('public._messages')
+
 @yield('content')
 
 @include('layouts._footer')

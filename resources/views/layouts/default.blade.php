@@ -9,7 +9,7 @@
     <title>@yield('title','') - PinFan BBS</title>
 
     <link rel="icon" type="image/png" href="">
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="{{mix('/css/app.css')}}">
 
 </head>
 <body>
@@ -21,5 +21,7 @@
 @yield('content')
 
 @include('layouts._footer')
+
+<script src="{{mix('/js/app.js')}}"></script>
 </body>
 </html>

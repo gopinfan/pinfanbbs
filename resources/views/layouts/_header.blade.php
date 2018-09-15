@@ -13,6 +13,40 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('about')}}">关于</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('home')}}">用户列表</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+
+                @if(Auth::check())
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{Auth::user()->name}} <b class="caret"></b>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">个人中心</a>
+                            <a class="dropdown-item" href="#">编辑资料</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">
+                                <form action="{{route('logout')}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-block btn-danger btn-sm">退出</button>
+                                </form>
+                            </a>
+                        </div>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a href="{{route('login')}}" class="nav-link">登录</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{route('signup')}}" class="nav-link">注册</a>
+                    </li>
+                @endif
+
             </ul>
         </div>
     </div>

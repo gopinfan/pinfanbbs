@@ -7,6 +7,15 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
+
+    // constructor
+    public function __construct()
+    {
+        $this->middleware('guest', [
+            'only' => ['create']
+        ]);
+    }
+
     // create
     public function create()
     {
@@ -23,7 +32,7 @@ class SessionsController extends Controller
 
         if (Auth::attempt($credentials, $request->has('remember'))){
             session()->flash('success', '欢迎回来！');
-            return redirect()->route('users.show', [Auth::user()]);
+            return redirect()->intended(route('users.show', [Auth::user()]));
         } else {
             session()->flash('danger', '登录账号和密码不匹配');
             return redirect()->back();

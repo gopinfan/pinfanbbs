@@ -13,7 +13,12 @@
                             <img src="{{$user->gravatar(48)}}" alt="{{$user->name}}" class="rounded-circle mr-3">
                         </a>
                         <div class="media-body">
-                            <h5><a href="{{route('users.show', $user->id)}}">{{$user->name}}</a></h5>
+                            <h5>
+                                <a href="{{route('users.show', $user->id)}}">{{$user->name}}</a>
+                                @if($user->is_admin)
+                                    <small>[管理员]</small>
+                                @endif
+                            </h5>
                             {{$user->email}}
                             @can('destroy', $user)
                                 <div class="float-right">

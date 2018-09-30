@@ -8,7 +8,7 @@
             <div class="col-6 offset-3">
                 <div class="card">
                     <div class="card-header">用户登录</div>
-                    <div class="card-body">
+                    <div class="card-body pb-0">
                         <form action="{{route('login')}}" method="post">
                             @include('public._errors')
                             @csrf
@@ -24,6 +24,9 @@
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary w-25">登录</button>
+                            </div>
+                            <div class="form-group text-center border-top pt-3">
+                                <a href="{{route('password.request')}}" class="btn btn-link">忘记密码</a>
                                 <a href="{{route('signup')}}" class="btn btn-link">还没账号，现在注册</a>
                             </div>
                         </form>

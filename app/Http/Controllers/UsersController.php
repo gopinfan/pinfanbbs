@@ -87,13 +87,13 @@ class UsersController extends Controller
             'name' => $request->name
         ];
 
-        if ($request->password){
+        if ($request->password) {
             $data['password'] = bcrypt($request->password);
         }
 
         $user->update($data);
 
-        session()->flash('success','更新个人资料成功！');
+        session()->flash('success', '更新个人资料成功！');
 
         return redirect()->route('users.show', $user->id);
     }
@@ -112,13 +112,11 @@ class UsersController extends Controller
     {
         $view = 'emails.confirm';
         $data = compact('user');
-        $from = 'esinger@qq.com';
-        $name = 'esinger';
         $to = $user->email;
         $subject = '感谢注册 PinFanBBS ！请确认您的邮箱。';
 
-        Mail::send($view,$data, function($message) use ($from, $name, $to, $subject){
-            $message->from($from,$name)->to($to)->subject($subject);
+        Mail::send($view, $data, function ($message) use ($to, $subject) {
+            $message->to($to)->subject($subject);
         });
     }
 

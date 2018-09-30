@@ -50,4 +50,5 @@ class User extends Authenticatable
 
         return sprintf("http://www.gravatar.com/avatar/$hash?s=%s", $size);
     }
+
 }

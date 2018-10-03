@@ -12,7 +12,7 @@
             </form>
         @endcan
         <h5>
-            {{$user->name}}
+            <a href="{{route('users.show', $user->id)}}">{{$user->name}}</a>
             <small class="text-muted">{{$status->created_at->diffForHumans()}}</small>
         </h5>
         <p>
